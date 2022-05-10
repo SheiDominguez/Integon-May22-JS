@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Fundamentos del DOM (Document Object Model) con JavaScript
+        </title>
+    </head>
+    <body>
+        <h3>Fundamentos del DOM</h3>
+        <div id="mensaje">Texto fijo</div>
+        <div id="mensaje2" class="mensajeImportante">mensaje 2</div>
+        <div id="mensaje3" class="mensajeImportante">mensaje 3</div>
+
+        <ul id="fruitList">
+            <li>Manzanas</li>
+            <li>Peras</li>
+            <li>Platanos</li>
+            <li>Melones</li>
+        </ul>
+        <ol>
+            <li>Primavera</li>
+            <li>Verano</li>
+            <li>Otoño</li>
+            <li>Invierno</li>
+        </ol>
+        <script>
+            console.log(document.title);
+            console.log(document.doctype);
+            console.log(document.lastModified);
+
+            var mensaje = document.getElementById("mensaje");
+            if(mensaje){
+                //alert(mensaje.innerText);
+                mensaje.innerText = "Texto cambiado con JS";
+            }
+
+            let losdivs = document.getElementsByTagName("div");
+            console.log(`Hay ${losdivs.length} divs en el documento.`);
+
+            let divsImportantes = document.getElementsByClassName("mensajeImportante");
+            console.log(`Hay ${divsImportantes.length} divs importantes en el documento.`);
+
+            let fruitList = document.getElementById("fruitList");
+            fruitList.innerHTML = "";
+            fruitList.innerHTML += "<li>Sandías</li><li>Kiwis</li>";
+
+            fruitList.childNodes.forEach(element => {
+                console.log(element.innerText);
+            });
+
+            fruitList.childNodes.forEach(function(element) {
+                console.log(element.innerText);
+            });
+        </script>
+    </body>
+</html>

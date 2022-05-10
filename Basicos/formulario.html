@@ -1,0 +1,26 @@
+<!-- nombre, edad, ingreso, boton submit, recuperar los datos en 2 variables y validar que edad tenga el tipo de dato correcto (edad: number), si error alert, formulario.js dentro de js -->
+
+<html>
+    <head>
+        <script src="js/formulario.js"></script>
+    </head>
+    <body>
+        <form id="formulario" name="formulario">
+            <div>
+                <label>Nombre: </label>
+                <input type="text" id="formNombre" />
+            </div>
+            <div>
+                <label>Edad: </label>
+                <input type="text" id="formEdad" />
+            </div>
+            <div>
+                <label>Ingreso: </label>
+                <input type="text" id="formIngreso" />
+            </div>
+            <div>
+                <input type="button" value="Guardar" onclick="Validacion(formulario)" />
+            </div>
+        </form>
+    </body>
+</html>
