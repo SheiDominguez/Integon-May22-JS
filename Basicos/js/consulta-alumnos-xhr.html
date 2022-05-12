@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alumnos</title>
+    </head>
+    <body>
+        <script>
+            function alumnosAPI()
+            {
+                console.log("ejecutando alumnosAPI");
+                const url = "http://localhost:3005/alumnos";
+                // Se crea el objeto (no viene instalado en node pero si en el navegador)
+                let xhttp = new XMLHttpRequest();
+                // Abre la conexión con el método GET
+                xhttp.open('GET', url);
+                // Se configura que se acepte un resultado de tipo json
+                xhttp.setRequestHeader('Accept', 'application/json');
+                // Se delega el evento onreadystatechange (cambios de estado de la petición)
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        const data = JSON.parse(this.response);
+                        
+                        let ol = document.createElement("ol");
+                        
+                        data.alumnos.forEach(element => {
+                            let li = document.createElement("li");
+                            li.innerText = `${element.name} ${element.apellido} - ${element.ciudad}`
+                            ol.appendChild(li);
+                        });
+                        document.body.appendChild(ol);
+                    }
+                }
+                // Envía la petición
+                xhttp.send();
+            }
+            alumnosAPI();
+        </script>
+    </body>
+</html>
